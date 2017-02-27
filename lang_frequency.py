@@ -1,5 +1,7 @@
 import os
-import itertools
+import argparse
+import collections
+import re
 
 
 def load_data(filepath):
@@ -10,26 +12,17 @@ def load_data(filepath):
 
 
 def get_most_frequent_words(text):
-    word_list = text.split()
-    unique_word_list = []
-    for word in word_list:
-        if (word not in unique_word_list) and word.isalnum():
-            unique_word_list.append(word)
-    word_count = []
-    for word in unique_word_list:
-        word_count.append(word_list.count(word))
-    freq_pairs = zip(unique_word_list, word_count)
-    sorted_freq_pairs = sorted(
-                        freq_pairs, key=lambda freq_pairs: freq_pairs[1],
-                        reverse=True)
-    return sorted_freq_pairs
+    words = re.findall(r"\w+", text.lower())
+    return collections.Counter(words).most_common(10)
 
 
 if __name__ == '__main__':
-    filepath = input("Введите путь до файла: ")
-    if load_data(filepath) is not None:
-        sorted_freq_pairs = get_most_frequent_words((load_data(filepath)))
-        top_ten_words = itertools.islice(sorted_freq_pairs, 10)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("filepath", help="Путь до файла")
+    args = parser.parse_args()
+    if load_data(args.filepath) is not None:
+        top_ten_words = get_most_frequent_words((load_data(args.filepath)))
+        print("Десять наиболее часто употреблямых слов в данном тексте это:")
         for word in top_ten_words:
             print(word)
     else:

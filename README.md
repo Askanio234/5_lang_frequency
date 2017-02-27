@@ -1,22 +1,31 @@
-# Frequency Analysis of Words
+# Частотный анализ
 
-Программа анализирует частоту употребления слов в тексте и выводит в консоль
+Скрипт анализирует частоту употребления слов в тексте и выводит в консоль
 10 самых часто встречаемых слов
 
-Example usage:
-python lang_frequency.py
-Введите путь до файла: E:\Users\User\projects\5_lang_frequency\text.txt
-('the', 109)
-('of', 69)
+# Как запустить
+
+Запуск на Linux:
+
+```#!bash
+
+$ E:\Users\User\Documents\5_lang_frequency>python lang_frequency.py E:\Users\User\5_lang_frequency\text.txt
+Десять наиболее часто употреблямых слов в данном тексте это:
+('the', 110)
+('of', 71)
 ('to', 64)
-('that', 40)
-('in', 28)
-('was', 27)
+('that', 56)
+('in', 29)
+('was', 29)
+('he', 21)
 ('their', 20)
+('and', 19)
 ('had', 19)
-('and', 17)
-('be', 17)
 
-# Project Goals
+```
 
-The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
+Запуск на Windows происходит аналогично.
+
+# Цели проекта
+
+Код создан в учебных целях. В рамках учебного курса по веб-разработке - [DEVMAN.org](https://devman.org)
