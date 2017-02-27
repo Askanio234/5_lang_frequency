@@ -22,7 +22,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     if load_data(args.filepath) is not None:
         top_ten_words = get_most_frequent_words((load_data(args.filepath)))
-        print("Десять наиболее часто употреблямых слов в данном тексте это:")
+        print("Десять наиболее часто употребляемых слов в данном тексте это:")
         for word in top_ten_words:
             print(word)
     else:
